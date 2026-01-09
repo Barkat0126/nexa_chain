@@ -56,7 +56,7 @@ Follow these steps to set up the project locally.
 
 ### 1. Clone the Repository
 ```bash
-git clone https://github.com/yourusername/nexa_chain.git
+git clone https://github.com/Barkat0126/nexa_chain.git
 cd nexa_chain
 ```
 
