@@ -17,10 +17,10 @@ const Dashboard = () => {
 
     const fetchData = async () => {
       try {
-        const dashboardRes = await axios.get('http://localhost:5000/api/users/dashboard');
+        const dashboardRes = await axios.get('https://nexa-chain-ozlv.onrender.com/api/users/dashboard');
         setData(dashboardRes.data);
 
-        const refRes = await axios.get('http://localhost:5000/api/users/referrals');
+        const refRes = await axios.get('https://nexa-chain-ozlv.onrender.com/api/users/referrals');
         setReferrals(refRes.data);
       } catch (error) {
         console.error(error);
