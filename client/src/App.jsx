@@ -1,5 +1,4 @@
-import { useState } from 'react'
-import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { AuthProvider } from './context/AuthContext';
 import viteLogo from '/vite.svg'
 import './App.css'
@@ -8,8 +7,6 @@ import Register from './pages/Register';
 import Dashboard from './pages/Dashboard';
 
 function LandingPage() {
-  const [count, setCount] = useState(0)
-  
   return (
     <div className="app-container">
       <header className="header">
