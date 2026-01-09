@@ -143,3 +143,33 @@ The system uses `node-cron` to run a job every day at **00:00 (Midnight)**.
 ## 🛡️ License
 
 This project is licensed under the MIT License.
+
+---
+
+## 🚀 Deployment Guide
+
+### 1. Database Setup (MongoDB Atlas)
+Since `localhost` database will not work on cloud platforms (Vercel, Render, Heroku), you must use a cloud database.
+1.  Go to [MongoDB Atlas](https://www.mongodb.com/cloud/atlas) and create a free account.
+2.  Create a new Cluster (Free Tier).
+3.  In "Database Access", create a database user (username/password).
+4.  In "Network Access", allow access from anywhere (`0.0.0.0/0`).
+5.  Get your **Connection String**: `mongodb+srv://<username>:<password>@cluster0.mongodb.net/nexa_chain`.
+
+### 2. Backend Hosting (Render/Railway)
+Because this backend uses **Cron Jobs** and needs to run continuously, **Render** or **Railway** is recommended over Vercel for the server.
+1.  Push your code to GitHub.
+2.  Create a new Web Service on [Render](https://render.com/).
+3.  Connect your GitHub repository.
+4.  Set `Root Directory` to `server`.
+5.  Set `Build Command` to `npm install`.
+6.  Set `Start Command` to `node index.js`.
+7.  **Environment Variables**: Add `MONGO_URI` with your Atlas connection string.
+
+### 3. Frontend Hosting (Vercel)
+1.  Push your code to GitHub.
+2.  Import the project into [Vercel](https://vercel.com/).
+3.  Set `Root Directory` to `client`.
+4.  Vercel will auto-detect Vite.
+5.  **Environment Variables**: 
+    - You may need to update your API calls in the frontend to point to your deployed backend URL (e.g., `https://nexa-chain-api.onrender.com`) instead of `localhost:5000`.
