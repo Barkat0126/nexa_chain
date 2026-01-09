@@ -11,7 +11,14 @@ const app = express();
 
 // Middleware
 app.use(express.json());
-app.use(cors());
+app.use(cors({
+  origin: ['https://nexa-chain.vercel.app', 'http://localhost:5173'],
+  credentials: true
+}));
+
+app.get('/', (req, res) => {
+  res.send('Nexa Chain API is running successfully!');
+});
 
 // Routes (will import later)
 app.use('/api/auth', require('./routes/authRoutes'));
